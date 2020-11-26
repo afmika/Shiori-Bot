@@ -49,6 +49,7 @@ module.exports = class Shiori {
 
     /**
      * Changes the default user input processor
+     * @public
      * @param {Function} msgProcessor (response : string and captured : {$1 : .., ... $9 : } as inputs)  
      */
     use(msgProcessor) {
