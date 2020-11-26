@@ -1,6 +1,27 @@
 module.exports = {
+	"(.*)?Shiori(.*)?": [
+		"Shiori. That's my name and I'm not human",
+		"Would you like me to tell/reminder you who made me?"
+	],
+	"(.*)?Who made you(.*)?" : [
+		"I was created by afmika",
+		"afmika is my creator",
+		"afmika created me"
+	],
+	"(.*)?your creator(.*)?" : [
+		"I was created by afmika",
+		"afmika is my creator",	
+		"afmika created me"
+	],
+	"(.*)?Who are you(.*)?" : [
+		"I'm Shiori",
+		"Shiori is my name. But that's not important",
+		"They call me Shiori"
+	],
+	
     "(.*)?hello(.*)?": [
-        "How do you do. Please state your problem."
+        "How do you do. Please state your problem.",
+        "Please state your problem"
     ],
     "(.*)? computer(.*)?": [
         "Do computers worry you?",
@@ -10,6 +31,7 @@ module.exports = {
     ],
     "(.*)? name(.*)?": [
         "I am not interested in names",
+        "I don't think names are important"
     ],
     "(.*)?sorry(.*)?": [
         "Please don't apologize",

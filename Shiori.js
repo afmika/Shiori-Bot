@@ -58,10 +58,9 @@ module.exports = class Shiori {
     /**
      * @public
      * @param {string} user_input 
-     * @param {Function?} msgProcessor 
      */
-    reply(user_input, msgProcessor) {
-        const messageProcessor = msgProcessor || this.default_message_processor;
+    reply (user_input) {
+        const messageProcessor = this.default_message_processor;
         let response = '';
 
         for (let key in this.model) {
@@ -80,6 +79,28 @@ module.exports = class Shiori {
         this.stories.push(new Story(user_input, response));
 
         return response;
+    }
+
+    /**
+     * @public
+     * @param {string} user_input 
+     * @param {number} delay 
+     * @returns {Promise<string>}
+     */
+    async replyAsync (user_input, delay) {
+        if (!delay || delay < 0)
+            throw new Error("Delay must be positive");
+
+        return await new Promise((resolve, reject) => {
+            setTimeout(() => {
+                try {
+                    let response = this.reply(user_input);
+                    resolve(response);
+                } catch(err) {
+                    reject(err);
+                }
+            }, delay);
+        });
     }
 
     /**
